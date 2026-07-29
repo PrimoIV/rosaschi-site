@@ -2,7 +2,7 @@
 
 :root {
     --color-background: #f4f1eb;
-    --color-text: #171714;
+    --color-text: #011111;
     --color-muted: #66665f;
     --color-line: rgba(23, 23, 20, 0.22);
     --color-surface: #ebe6dd;
@@ -191,10 +191,15 @@ h3 {
 }
 
 .wordmark {
-    font-size: 0.95rem;
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: var(--letter-spacing-display);
-    line-height: 1;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.wordmark img {
+    display: block;
+    width: clamp(6.75rem, 8vw, 7.75rem);
+    height: auto;
 }
 
 .site-nav,
