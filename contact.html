@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Contact | Rosaschi</title>
+    <meta
+        name="description"
+        content="Contact Rosaschi with questions about our botanical skincare and upcoming launch."
+    >
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="contact-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="wordmark" href="index.html" aria-label="Rosaschi home">
+                <img src="assets/logos/rosaschi-wordmark-dark.svg" alt="">
+            </a>
+
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="index.html#product">Product</a>
+                <a href="index.html#formula">Formula</a>
+                <a href="index.html#philosophy">Philosophy</a>
+                <a href="index.html#join">Join</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="contact" aria-labelledby="contact-title">
+            <div class="container contact-grid">
+                <div class="contact-intro">
+                    <p class="eyebrow">CONTACT</p>
+                    <h1 id="contact-title">Contact</h1>
+                    <p class="contact-copy">
+                        Questions about Rosaschi, wholesale opportunities, or press inquiries.
+                        We'll respond as soon as we can.
+                    </p>
+                </div>
+
+                <form
+                    class="contact-form"
+                    action="https://formspree.io/f/meajjvre"
+                    method="POST"
+                >
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            autocomplete="name"
+                            placeholder="Your name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contact-email">Email address</label>
+                        <input
+                            id="contact-email"
+                            name="email"
+                            type="email"
+                            inputmode="email"
+                            autocomplete="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="inquiry-type">Inquiry type</label>
+                        <select id="inquiry-type" name="inquiry_type" required>
+                            <option value="">Select an inquiry type</option>
+                            <option value="General">General</option>
+                            <option value="Product Support">Product Support</option>
+                            <option value="Wholesale">Wholesale</option>
+                            <option value="Press">Press</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="message">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="How can we help?"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="New message from the Rosaschi website">
+                    <input type="hidden" name="_next" value="https://rosaschi.com/thank-you.html">
+                    <button class="button button-primary" type="submit">Send message</button>
+
+                    <div class="contact-email">
+                        <p>Prefer email?</p>
+                        <a href="mailto:hello@rosaschi.com">hello@rosaschi.com</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a class="wordmark" href="index.html" aria-label="Rosaschi home">
+                <img src="assets/logos/rosaschi-wordmark-dark.svg" alt="">
+            </a>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="contact.html" aria-current="page">Contact</a>
+                <span>Privacy</span>
+                <span>Terms</span>
+            </nav>
+            <p>&copy; 2026 Rosaschi</p>
+        </div>
+    </footer>
+</body>
+</html>
