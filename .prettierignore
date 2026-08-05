@@ -1,0 +1,12 @@
+# Dependencies
+node_modules
+
+# Git
+.git
+
+# VS Code settings
+.vscode
+
+# Build output (if you ever add one)
+dist
+build
