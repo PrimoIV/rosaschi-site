@@ -4,6 +4,7 @@
     --color-background: #f4f1eb;
     --color-text: #011111;
     --color-muted: #66665f;
+    --color-accent: #7b8f82;
     --color-line: rgba(23, 23, 20, 0.22);
     --color-surface: #ebe6dd;
 
@@ -750,6 +751,121 @@ h3 {
     font-weight: var(--font-weight-semibold);
 }
 
+.confirmed {
+    padding-block: clamp(4.5rem, 7vw, 6.75rem);
+}
+
+.confirmed-inner {
+    max-width: 56rem;
+}
+
+.confirmed h1 {
+    max-width: 9ch;
+    margin-top: 1.125rem;
+    font-size: clamp(3.25rem, 5vw, 4.5rem);
+}
+
+.confirmed h1 span {
+    display: block;
+    margin-left: 0.12em;
+}
+
+.confirmed .eyebrow {
+    font-size: 0.8125rem;
+}
+
+.confirmed-message {
+    max-width: 40rem;
+    margin-top: var(--space-5);
+}
+
+.confirmed-welcome {
+    color: var(--color-text);
+    font-size: var(--font-size-body-large);
+    line-height: 1.5;
+}
+
+.confirmed-copy {
+    margin-top: var(--space-3);
+    color: var(--color-muted);
+    font-size: var(--font-size-body-large);
+    line-height: 1.55;
+}
+
+.confirmed-expect {
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: var(--border);
+}
+
+.confirmed-expect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: var(--space-5);
+    border-top: var(--border);
+    border-bottom: var(--border);
+}
+
+.confirmed-expect-grid > div {
+    min-height: 7rem;
+    padding: var(--space-5) var(--space-5) var(--space-5) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--space-3);
+}
+
+.confirmed-expect-grid > div + div {
+    padding-left: var(--space-5);
+    border-left: var(--border);
+}
+
+.confirmed-expect-grid span {
+    color: var(--color-accent);
+    font-size: 0.8125rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-label);
+}
+
+.confirmed-expect-grid p {
+    max-width: 13rem;
+    font-size: 1.0625rem;
+    font-weight: var(--font-weight-medium);
+    line-height: 1.4;
+}
+
+.confirmed-end {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-7);
+    margin-top: var(--space-6);
+}
+
+.confirmed-closing {
+    max-width: 32rem;
+    color: var(--color-muted);
+}
+
+.confirmed .return-link {
+    flex-shrink: 0;
+    margin-top: 0;
+    font-size: 0.9375rem;
+    transition:
+        color 180ms ease,
+        border-color 180ms ease;
+}
+
+.confirmed .return-link:hover,
+.confirmed .return-link:focus-visible {
+    color: var(--color-accent);
+}
+
+.confirmed > .confirmed-inner > .eyebrow,
+.confirmed-expect-grid span {
+    color: var(--color-accent);
+}
+
 .legal-placeholder {
     display: flex;
     min-height: clamp(28rem, 60vh, 40rem);
@@ -990,6 +1106,32 @@ h3 {
 
     .footer-inner > p {
         grid-column: auto;
+    }
+
+    .confirmed {
+        padding-block: 4rem;
+    }
+
+    .confirmed-expect-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .confirmed-expect-grid > div {
+        min-height: auto;
+        padding: 1.25rem 0;
+        gap: 0.5rem;
+    }
+
+    .confirmed-expect-grid > div + div {
+        padding-left: 0;
+        border-top: var(--border);
+        border-left: 0;
+    }
+
+    .confirmed-end {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: var(--space-5);
     }
 }
 
