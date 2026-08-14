@@ -259,6 +259,54 @@
             const signupStatus = document.getElementById("signup-status");
             const signupButton = signupForm.querySelector('button[type="submit"]');
 
+            const ATTRIBUTION_KEYS = {
+                landingUrl: "rosaschi_first_landing_url",
+                externalReferrer: "rosaschi_external_referrer",
+            };
+
+            function captureAttribution() {
+                try {
+                    if (!sessionStorage.getItem(ATTRIBUTION_KEYS.landingUrl)) {
+                        sessionStorage.setItem(ATTRIBUTION_KEYS.landingUrl, window.location.href);
+                    }
+
+                    if (
+                        document.referrer &&
+                        !document.referrer.startsWith(window.location.origin) &&
+                        !sessionStorage.getItem(ATTRIBUTION_KEYS.externalReferrer)
+                    ) {
+                        sessionStorage.setItem(
+                            ATTRIBUTION_KEYS.externalReferrer,
+                            document.referrer
+                        );
+                    }
+                } catch {
+                    // Attribution is optional. Signup should still work if storage is blocked.
+                }
+            }
+
+            function getAttribution() {
+                let landingUrl = window.location.href;
+                let externalReferrer = "";
+
+                try {
+                    landingUrl =
+                        sessionStorage.getItem(ATTRIBUTION_KEYS.landingUrl) || window.location.href;
+
+                    externalReferrer =
+                        sessionStorage.getItem(ATTRIBUTION_KEYS.externalReferrer) || "";
+                } catch {
+                    // Fall back to current-page values.
+                }
+
+                return {
+                    landingUrl,
+                    externalReferrer,
+                };
+            }
+
+            captureAttribution();
+
             signupForm.addEventListener("submit", async (event) => {
                 event.preventDefault();
 
@@ -272,6 +320,8 @@
                 signupButton.disabled = true;
                 signupStatus.textContent = "Joining...";
 
+                const { landingUrl, externalReferrer } = getAttribution();
+
                 try {
                     const response = await fetch(
                         "https://rosaschi-waitlist.primov-iv.workers.dev/",
@@ -282,7 +332,8 @@
                             },
                             body: JSON.stringify({
                                 email,
-                                landingUrl: window.location.href,
+                                landingUrl,
+                                externalReferrer,
                             }),
                         }
                     );
